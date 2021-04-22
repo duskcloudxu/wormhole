@@ -6,8 +6,7 @@ const app = express();
 const cors = require('cors');
 const server = require('http').Server(app);
 // The origin is used by CORS
-const origin = process.env.NODE_ENV === "production" ? 
-        "app-name.herokuapp.com" : "http://localhost:3000"; 
+const origin = "http://localhost:3000"; 
 
 app.use(cors);
 
@@ -22,37 +21,24 @@ const io = require('socket.io')(server, {
 connectDB();
 const Conversation = require('./models/Conversation');
 
-const createConversation = (hostPubkey) => {
-    let res = new Conversation({ hostPubkey: hostPubkey, messages: [] }).save();
+const createConversation = async (hostPubkey) => {
+    let res = await new Conversation({ hostPubkey: hostPubkey, messages: [] }).save();
     return res;
 }
 
-const findConversation = (hostPubkey) => {
-    Conversation.findOne({ hostPubkey: hostPubkey }, function (err, conversation) {
-        console.log("FOUND conv: " + conversation.hostPubkey)
-        return conversation;
-    });
+const findConversation = async (hostPubkey) => {
+    let res = await Conversation.findOne({ hostPubkey: hostPubkey });
+    return res;
 }
 
-const addMessage = (hostPubkey, message) => {
-    Conversation.findOne({ hostPubkey: hostPubkey }, function (err, conversation) {
-        let updated = [...conversation.messages, message]
-        conversation.messages = updated;
-        conversation.save()
-        return conversation;
-    });
+const addMessage = async (hostPubkey, message) => {
+    let mathcedConversation = await Conversation.findOne({ hostPubkey: hostPubkey });
+    let updatedMessages = [...mathcedConversation.messages, message]
+    mathcedConversation.messages = updatedMessages;
+    await mathcedConversation.save();
+    console.log(mathcedConversation);
+    return mathcedConversation;
 }
-
-// console.log("created: ")
-// console.log(createConversation("owaif1113o"))
-// const testMsg = {
-//     sender: {
-//               nickName: "tom",
-//               pubKey: "asdf131fasdf",
-//               hostPubkey: "owaif1113o"
-//              },
-//     plainText: "Hellow this is plaintext"
-//   }
 
 // Choose a port, default is 4002 (could be almost anything)
 const PORT = process.env.PORT || 4002;
@@ -85,8 +71,8 @@ io.on("connection", client => {
             let host = member;
             let pubKey = member.pubKey;
             let nickName = member.nickName;
-        
             members.push(host);
+            createConversation(pubKey);
             //Add the host to the room
             client.join(pubKey);
             messages.push(nickName + " has created the chat");
@@ -104,13 +90,13 @@ io.on("connection", client => {
         let nickName = member.nickName;
         let joinNotification = nickName + " joined the room by code: " + invitationCode;
         messages.push(joinNotification);
-        io.to(invitationCode).emit(messages);
+        io.to(invitationCode).emit("broadcast", messages);
     })
 
-    client.on("chatMessage", (member, plainText, hostPubkey) => {
-        messages.push(plainText);
-        io.sockets.emit("broadcast", plainText)
+    client.on("chatMessage", message => {
+        messages.push(message.plainText);
+        addMessage(message.sender.hostPubkey, message);
+        io.to(message.sender.hostPubkey).emit("broadcast", messages);
     });
-     
 })
 

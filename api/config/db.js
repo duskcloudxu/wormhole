@@ -11,6 +11,7 @@ const {MONGO_USERNAME = 'root',
  const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
 
 const connectDB = async () => {
+	console.log("DB")
 	try {
         await mongoose.connect(url, {
 			useNewUrlParser: true,

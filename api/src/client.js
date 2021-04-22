@@ -52,8 +52,8 @@ export const joinConversation = member => {
 }
 
 
-export const sendMessage = (message) => {
-    socket.emit('chatMessage', message.plaintext);
+export const sendMessage = message => {
+    socket.emit('chatMessage', message);
 }
 
 export const endChat = () => {
