@@ -5,10 +5,73 @@
     .title{
       font-size: 48px;
     }
+    .element{
+      font-size:24px;
+    }
+  
   }
+
+  
+  .introduction{
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    background-image: url("../images/mainPic.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 90vh;
+    .title{
+      font-size: 10vh;
+    }
+    .slogan{
+      font-size: 3vh;
+    }
+    .page-button{
+      color: #8B4513;
+      background-color: white;
+      font-size: 1.5vw;
+      padding: 1vw 1vw;
+    }
+    .divider{
+      width:5vh;
+      height:auto;
+      display:inline-block;
+  }
+    
+  }
+  
+
+  .mainImage{
+    background-image: url('../images/mainPic.png');
+    height: 90vh;
+  }
+  .page-block{
+    height: 80vh;
+    .page-button{
+      color: white;
+      background-color: #8B4513;
+      font-size: 1.5vw;
+      padding: 1vw 1vw;
+    }
+    .element{
+      margin: 3vh 3vh;
+    }
+    .page-card{
+      border-color: #8B4513;
+      height:30vh;
+    }
+    .page-card-large{
+      border-color: #8B4513;
+      height:40vh;
+    }
+    .page-card-invisible{
+      border-color: white;
+      height:30vh;
+    }
+  }
+  
 }
 
-.chatting{
 
-}
 
