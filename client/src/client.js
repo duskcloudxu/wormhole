@@ -1,29 +1,54 @@
 import store from "./redux/store";
 import {newMessage} from "./redux/actions";
+import {SOCKET_HOST} from "./constant";
 
 /** CLIENT CONFIGURATION - connect to the server */
 const socketIOClient = require("socket.io-client");
 
 // When deployed, connect to the hosted server, otherwise connect to local server
 // Localhost port must match server
-let host = process.env.NODE_ENV === 'production' ?
-    "appname.herokuapp.com" : "localhost:4002"   
-let socket = socketIOClient.connect(host, {secure: true});
-let sessionId = socket.sessionId;
+
 // Checks which host we're connected to (for troubleshooting);
-console.log("connected to " + host);
 
+
+export const initializeSocket = ()=>{
 //Receive welcome message from server
-socket.on("hello", msg => {
+  let socket = socketIOClient.connect(SOCKET_HOST, {secure: true});
+  socket.on("hello", msg => {
     console.log(msg);
-})
+    console.log(`connected to ${SOCKET_HOST} with session id ${socket.id}`);
+  })
 
-//Receive chat message from server
-socket.on("broadcast", msg => {
-    console.log("client received: ")
+  socket.on("receiveMessage", msg => {
+    console.log(msg)
+  })
+
+  socket.on("error", msg => {
     console.log(msg);
-    store.dispatch(newMessage(msg));
-})
+  })
+
+  socket.on("joinMessage", msg => {
+    console.log(msg)
+  })
+
+  socket.on("leaveMessage", msg => {
+    console.log(msg)
+  })
+
+  socket.on("endSession", msg => {
+    console.log(msg)
+  })
+
+  socket.on("disconnect", msg => {
+    console.log(msg)
+  })
+
+  socket.on("pong",msg=>{
+    console.log(msg);
+  })
+
+  return socket;
+}
 
 
 // const exampleMember = {
@@ -33,8 +58,9 @@ socket.on("broadcast", msg => {
 //   }
 
 // Add host's public key here
-export const createConversation = member => {
-    socket.emit("createConversation", member);
+export const createConversation = (socket,member) => {
+  console.log("creatConversation triggered")
+  socket.emit("createConversation", member);
 }
 
 /*
@@ -47,33 +73,35 @@ const message = {
   plainText: "Hellow this is plaintext"
 }
 */
-export const joinConversation = member => {
-    socket.emit("joinConversation", member);
+export const joinConversation = (socket,member) => {
+  socket.emit("joinConversation", member);
 }
 
-
-export const sendMessage = message => {
-    socket.emit('chatMessage', message);
+export const sendMessage = (socket,message) => {
+  socket.emit('sendMessage', message);
 }
 
-export const endChat = () => {
-    socket.disconnect();
+export const userExit = (socket) => {
+  socket.emit('userExit');
 }
 
+export const endSession = (socket) => {
+  socket.emit('endSession');
+}
 
 /**
  * Send and receive messages
- * 
+ *
  * // Emit a message and wait for a reponse. Call this in an async action.
  * export const myFunction = callbackFunc => {
  *    socket.emit("message for the server", data);
- *    
+ *
  *    socket.on("message from the server", result => {
  *       callbackFunc(result);
  *    })
- * 
+ *
  * }
- * 
+ *
  * // Listen for a particular message
  * socket.on("message received", msg => {
  *    //do something

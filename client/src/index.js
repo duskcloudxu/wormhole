@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/styles.css';
+import './styles/styles.scss';
 import App from './views/App';
 import {Provider} from "react-redux";
 import store from "./redux/store";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@popperjs/core/dist/cjs/popper'
+import 'bootstrap/dist/js/bootstrap'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <App/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
