@@ -24,6 +24,14 @@ const MainPage = props => {
     setInvitationCode("");
     setMemberNickname("");
   }
+
+  const scrollStart = () => {
+    window.scrollTo(0, 700); 
+  }
+
+  const scrollJoin = () => {
+    window.scrollTo(0, 1400); 
+  }
   
   return (
     <div className="main">
@@ -42,9 +50,9 @@ const MainPage = props => {
                     </div>
                     <div className="col-lg-10 align-self-baseline">
                         <p className="slogan text-white font-weight-light mb-5">Gentlemen don't read each other's mail</p>
-                        <a className="page-button btn btn-xl" href="#startBlock">Start Conversation</a>
+                        <a className="page-button btn btn-xl" onClick={scrollStart}>Start Conversation</a>
                         <a className="divider"></a>
-                        <a className="page-button btn btn-xl js-scroll-trigger" href="#member-block">Join Conversation</a>
+                        <a className="page-button btn btn-xl js-scroll-trigger" onClick={scrollJoin}>Join Conversation</a>
                     </div>
                 </div>
             </div>
