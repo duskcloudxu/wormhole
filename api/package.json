@@ -1,16 +1,16 @@
 {
-  "name": "api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
-  },
-  "author": "",
-  "license": "ISC",
+  "name": "wormhole_backend",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
+    "config": "^3.3.6",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "nodemon": "^2.0.7"
+    "mongoose": "^5.12.5",
+    "nodemon": "^2.0.7",
+    "socket.io": "^4.0.0"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
   }
 }
