@@ -30,7 +30,7 @@ const MainPage = props => {
   }
 
   const scrollJoin = () => {
-    window.scrollTo(0, 1400); 
+    window.scrollTo(0, 1700); 
   }
   
   return (
@@ -41,94 +41,98 @@ const MainPage = props => {
           <a className="navbar-brand fixed-right text-white fw-bold element" href="#">FAQ and Tutorial</a>
         </div>
       </nav>
-
       <div className="introduction">
-            <div className="container h-100">
-                <div className="row h-100 align-items-center justify-content-center text-center">
-                    <div className="col-lg-12 align-self-end">
-                        <h1 className="title text-white font-weight-bold">Chatting Safe</h1>
-                    </div>
-                    <div className="col-lg-10 align-self-baseline">
-                        <p className="slogan text-white font-weight-light mb-5">Gentlemen don't read each other's mail</p>
-                        <a className="page-button btn btn-xl" onClick={scrollStart}>Start Conversation</a>
-                        <a className="divider"></a>
-                        <a className="page-button btn btn-xl js-scroll-trigger" onClick={scrollJoin}>Join Conversation</a>
-                    </div>
-                </div>
+        <div className="container h-100">
+          <div className="row h-100 align-items-center justify-content-center text-center">
+            <div className="col-lg-12 align-self-end">
+              <h1 className="title text-white font-weight-bold">Chatting safe.</h1>
             </div>
-      </div>
-
-      <div className="page-block container" id="startSection">
-        <div className="row h-100 align-items-center justify-content-center">
-          <div className="col-lg-12 align-self-end text-center">
-              <h1 className="font-weight-bold">Host conversation in encrypted mode</h1>
-          </div>
-          <div className="row">
-            <div className="page-card card col-lg-6">
-              <div className="card-body">
-                <h4 id="startBlock" className="card-subtitle mb-2 text-muted">Nickname</h4>
-                  <div className="element">
-                  <input type="text" className="form-control" id="hostNicknameEntry" placeholder="Enter host's nickname" onChange={e => setHostNickname(e.target.value)} value={hostNickname}></input>
-                  </div>
-                <button type="submit" className="btn page-button form-control" onClick={e => submitCreation()}>Host Conversation</button>
-              </div>
-            </div>
-            <div className="page-card-invisible card col-lg-6">
-              <div className="card-body">
-                <h3 className="card-title">Join a conversation</h3>
-                <h6 className="card-subtitle mb-2 text-muted">Got an invitation from your friend? Join the conversation with a click!</h6>       
-                <p><strong> RSA enrypted</strong></p>
-                <p><strong> Memory-stored credentials</strong></p>
-                <p><strong> Save conversation to local environment</strong></p>
-              </div>
+            <div className="col-lg-10 align-self-baseline">
+              <p className="slogan text-white font-weight-light mb-5">gentlemen don't read each other's mail.</p>
+              <a className="page-button btn btn-xl" onClick={scrollStart}>Start Conversation</a>
+              <a className="divider"></a>
+              <a className="page-button btn btn-xl js-scroll-trigger" onClick={scrollJoin}>Join Conversation</a>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="page-block container">
-        <div className="row h-100 align-items-center justify-content-center">
-          <div className="col-lg-12 align-self-end text-center">
-              <h1 className="font-weight-bold">Join conversation hosted by your friend</h1>
+      <div class="grid-container-create">
+        <div class="blockTitle text-center">
+          <h1 className="font-weight-bold">Host conversation in encrypted mode</h1>
+        </div>
+        <div class="blockForm">
+          <div class="blockLabelA">
+            <h4 class="label">Nickname</h4>
           </div>
-          <div className="row">
-            <div className="page-card-large card col-lg-6">
-
-              <div className="card-body">
-                <h4 className="card-subtitle mb-2 text-muted">Invitation Code</h4>
-                  <div className="element">
-                  <input type="text" className="form-control" id="invitationCode" placeholder="Enter invitation code" onChange={e => setInvitationCode(e.target.value)} value={invitationCode}></input>
-                  </div>
-
-                <h4 className="card-subtitle mb-2 text-muted">Nickname</h4>
-                <div className="element">
-                <input type="text" className="form-control" id="memberNickname" placeholder="Enter your nickname" onChange={e => setMemberNickname(e.target.value)} value={memberNickname}></input>
-                </div>
-                <button type="submit" className="btn page-button form-control" onClick={e => submitJoin()}>Join Conversation</button>
-
-                
-              </div>
-
-
-            </div>
-            <div className="page-card-invisible card col-lg-6">
-              <div className="card-body">
-                <h3 className="card-title">Host a conversation</h3>
-                <h6 className="card-subtitle mb-2 text-muted">Start the Conversation as host, send your public key to your friend,  and you can start!</h6>       
-                <p><strong> RSA enrypted</strong></p>
-                <p><strong> Memory-stored credentials</strong></p>
-                <p><strong> All messages are burned when you end conversation</strong></p>
-              </div>
-            </div>
+          <div class="blockInputA">
+            <input type="text" className="form-control field" id="hostNickname" placeholder="Enter your nickname" onChange={e => setHostNickname(e.target.value)} value={hostNickname}></input>
+          </div>
+          <button type="submit" className="btn form-control blockButton" onClick={e => submitCreation()}>Host Conversation</button>     
+        </div>
+        <div class="blockDescription">
+          <div class="descriptionTitle">
+            <h2>Host a conversation</h2>
+          </div>
+          <div class="descriptionSubtitle">
+            <p class="subtitle">Start the Conversation as host, send your public key to your friend,  and you can start!</p>
+          </div>
+          <div class="logoA"></div>
+          <div class="logoB"></div>
+          <div class="logoC"></div>
+          <div class="logoTextA">
+            <p><strong> RSA enrypted</strong></p>
+          </div>
+          <div class="logoTextB">
+            <p><strong> Memory-stored credentials</strong></p>
+          </div>
+          <div class="logoTextC">
+            <p><strong> All messages are burned when you end conversation</strong></p>
           </div>
         </div>
       </div>
-
       
-      
-
-
+      <div class="grid-container-join">
+        <div class="blockTitle text-center">
+          <h1 className="font-weight-bold">Join a conversation hosted by your friend</h1>
+        </div>
+        <div class="joinForm">
+          <div class="blockLabelA">
+            <h4 class="label">Invitation Code</h4>
+          </div>
+          <div class="blockInputA">
+            <input type="text" className="form-control field" id="invitationCode" placeholder="Enter your invitation code" onChange={e => setInvitationCode(e.target.value)} value={invitationCode}></input>
+          </div>
+          <div class="blockLabelB">
+            <h4 class="label">Nickname</h4>
+          </div>
+          <div class="blockInputB">
+            <input type="text" className="form-control field" id="memberNickname" placeholder="Enter your nickname" onChange={e => setMemberNickname(e.target.value)} value={memberNickname}></input>
+          </div>
+          <button type="submit" className="btn form-control blockButton" onClick={e => submitJoin()}>Host Conversation</button>     
+        </div>
+        <div class="blockDescription">
+          <div class="descriptionTitle">
+            <h2>Join a conversation</h2>
+          </div>
+          <div class="descriptionSubtitle">
+            <p class="subtitle">Got an invitation from your friend? Join the conversation with a click!</p>
+          </div>
+          <div class="logoA"></div>
+          <div class="logoB"></div>
+          <div class="logoD"></div>
+          <div class="logoTextA">
+            <p><strong> RSA enrypted</strong></p>
+          </div>
+          <div class="logoTextB">
+            <p><strong> Memory-stored credentials</strong></p>
+          </div>
+          <div class="logoTextC">
+            <p><strong> Save conversation to local environment</strong></p>
+          </div>
+        </div>
+      </div>
     </div>
+
   );
 };
 
