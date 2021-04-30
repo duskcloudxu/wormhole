@@ -29,73 +29,94 @@ $mobile: 768px;
 // all css attribute of main page go there
 .main {
   .navbar {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    position: fixed;
+    width: 100vw;
     .title {
       font-size: 48px;
     }
-    .element{
-      font-size:24px;
-    }
 
+    .element {
+      font-size: 24px;
+    }
+  }
+  .bg-transparent{
+    background: rgba(0,0,0,0)!important;
   }
 
 
-  .introduction{
-    padding-top: 10rem;
+  .introduction {
     padding-bottom: calc(10rem - 4.5rem);
     background-image: url("../images/mainPic.png");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
-    height: 90vh;
-    .title{
+    height: 100vh;
+
+    .title {
       font-size: 12vh;
     }
-    .slogan{
+
+    .slogan {
       font-size: 3vh;
     }
-    .page-button{
+
+    .page-button {
       color: #614D4D;
       background-color: white;
-      font-size: 1.5vw;
       font-weight: bold;
-      padding: 1vw 1vw;
+      padding: 10px;
     }
-    .divider{
-      width:5vh;
-      height:auto;
-      display:inline-block;
-  }
+
+    .divider {
+      width: 5vh;
+      height: auto;
+      display: inline-block;
+    }
+    @media (max-width: $mobile) {
+      height: 600px;
+    }
 
   }
 
 
-  .mainImage{
+  .mainImage {
     background-image: url('../images/mainPic.png');
     height: 90vh;
   }
-  .page-block{
+
+  .page-block {
     height: 80vh;
-    .page-button{
+
+    .page-button {
       color: white;
       background-color: #614D4D;
-      font-size: 1.5 vw;
+      font-size: 1.5vw;
       padding: 1vw 1vw;
     }
-    .element{
+
+    .element {
       margin: 3vh 3vh;
     }
-    .page-card{
+
+    .page-card {
       border-color: #614D4D;
-      height:30vh;
+      height: 30vh;
     }
-    .page-card-large{
+
+    .page-card-large {
       border-color: #614D4D;
-      height:40vh;
+      height: 40vh;
     }
-    .page-card-invisible{
+
+    .page-card-invisible {
       border-color: white;
-      height:30vh;
+      height: 30vh;
     }
   }
 
@@ -113,6 +134,9 @@ $mobile: 768px;
       ". blockForm blockDescription ."
       ". . . ."
       ". . . .";
+    @media (max-width: $mobile) {
+      height: 120vh!important;
+    }
   }
 
   .grid-container-join {
@@ -130,7 +154,9 @@ $mobile: 768px;
       ". . . .";
   }
 
-  .blockTitle { grid-area: blockTitle; }
+  .blockTitle {
+    grid-area: blockTitle;
+  }
 
   .blockForm {
     box-shadow: 0 0 0 8px #614D4D;
@@ -177,34 +203,40 @@ $mobile: 768px;
 
   .blockLabelB {
     grid-area: blockLabelB;
-    .label{
+
+    .label {
       color: #614D4D;
       font-size: 20px;
       font-weight: bold;
-    }}
+    }
+  }
+
   .blockInputB {
     grid-area: blockInputB;
-    .field{
+
+    .field {
       box-shadow: 0 0 0 2px #614D4D;
       border-radius: 2px;
       border-style: solid;
       border-width: 1px;
       border-color: #614D4D;
-    }}
+    }
+  }
 
   .blockLabelA {
-     grid-area: blockLabelA;
-     .label{
-       color: #614D4D;
-       font-size: 20px;
-       font-weight: bold;
-     }
+    grid-area: blockLabelA;
+
+    .label {
+      color: #614D4D;
+      font-size: 20px;
+      font-weight: bold;
     }
+  }
 
   .blockInputA {
     grid-area: blockInputA;
 
-    .field{
+    .field {
       box-shadow: 0 0 0 2px #614D4D;
       border-radius: 2px;
       border-style: solid;
@@ -235,31 +267,62 @@ $mobile: 768px;
     grid-area: blockDescription;
   }
 
-  .descriptionTitle { grid-area: descriptionTitle; }
+  .descriptionTitle {
+    grid-area: descriptionTitle;
+  }
 
   .descriptionSubtitle {
-     grid-area: descriptionSubtitle;
-     .subtitle{
-       font-size:14px;
-     }
-  }
+    grid-area: descriptionSubtitle;
 
+    .subtitle {
+      font-size: 14px;
+    }
+  }
+  p{
+    margin-bottom:0 ;
+  }
   .logoA {
     grid-area: logoA;
-    content:url(../images/rsa.png);
+    align-self: center;
+    justify-self: center;
+    content: url(../images/rsa.svg);
   }
 
-  .logoB { grid-area: logoB; content:url(../images/chip.png);}
+  .logoB {
+    grid-area: logoB;
+    align-self: center;
+    justify-self: center;
+    content: url(../images/chip.svg);
+  }
 
-  .logoC { grid-area: logoC; content:url(../images/fire.png);}
+  .logoC {
+    grid-area: logoC;
+    align-self: center;
+    justify-self: center;
+    content: url(../images/fire.svg);
+  }
 
-  .logoD { grid-area: logoC; content:url(../images/save.png);}
+  .logoD {
+    grid-area: logoC;
+    align-self: center;
+    justify-self: center;
+    content: url(../images/save.svg);
+  }
 
-  .logoTextA { grid-area: logoTextA; }
+  .logoTextA {
+    grid-area: logoTextA;
+    align-self: center;
+  }
 
-  .logoTextB { grid-area: logoTextB; }
+  .logoTextB {
+    grid-area: logoTextB;
+    align-self: center;
+  }
 
-  .logoTextC { grid-area: logoTextC; }
+  .logoTextC {
+    grid-area: logoTextC;
+    align-self: center;
+  }
 
 
   @media only screen and (max-width: 900px) {
@@ -331,6 +394,7 @@ $mobile: 768px;
         height: 90%;
         overflow-y: scroll;
       }
+
       .message {
         font-family: Consolas, monospace;
       }

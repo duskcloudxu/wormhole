@@ -19,16 +19,21 @@ const ChattingPageHost = props => {
   const [curMessage, setCurMessage] = useState('')
   const INFO_MODAL_ID = 'INFO_MODAL'
   const [currentConversation, setCurrentConversation] = useState('public')
-  if(messages[currentConversation] === undefined){
-    setCurrentConversation("public");
+  if (messages[currentConversation] === undefined) {
+    setCurrentConversation('public')
     return (<div>LOADING....</div>)
   }
   if (!nickName) {
-    dispatch(createConversationRedux('testHost'))
-    return <div>LOADING....</div>
+    return (
+      <div>
+        <div className="m-2 alert alert-danger">Please start from main page</div>
+        <button className="m-2 btn btn-danger"
+                onClick={() => {window.location.href = '#'}}>Back
+        </button>
+      </div>)
   }
-  const hideSidebar = ()=>{
-    setShowSidebar(false);
+  const hideSidebar = () => {
+    setShowSidebar(false)
   }
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar)
@@ -40,19 +45,19 @@ const ChattingPageHost = props => {
     }
   }
 
-  const handleSave = ()=>{
-    download(JSON.stringify(messages[currentConversation]));
+  const handleSave = () => {
+    download(JSON.stringify(messages[currentConversation]))
   }
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       handleSubmit()
       hideSidebar()
     }
   }
 
-  const handleEndSession=()=>{
-    dispatch(endSessionRedux());
+  const handleEndSession = () => {
+    dispatch(endSessionRedux())
   }
 
   return (
@@ -65,18 +70,21 @@ const ChattingPageHost = props => {
             <a className="navbar-brand">Channel Message</a>
           </div>
           <div className="d-flex align-items-center">
-            <button type="button" className="btn m-2 btn-success" onClick={handleSave}>Save</button>
+            <button type="button" className="btn m-2 btn-success"
+                    onClick={handleSave}>Save
+            </button>
             <button type="button" className="btn m-2 btn-info text-white"
                     data-bs-toggle="modal"
                     data-bs-target={'#' + INFO_MODAL_ID}>Invite
             </button>
-            <button type="button" className="btn m-2 btn-danger" onClick={handleEndSession}>End Session
+            <button type="button" className="btn m-2 btn-danger"
+                    onClick={handleEndSession}>End Session
             </button>
           </div>
         </div>
       </nav>
       <div className="chattingContainer d-flex">
-        <div className="chattingContent" onClick={()=>hideSidebar()}>
+        <div className="chattingContent" onClick={() => hideSidebar()}>
           <div className="messageBox ">
             {
               messages[currentConversation].map(item => (

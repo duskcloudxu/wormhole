@@ -6,7 +6,7 @@ import {
   sendMessageRedux,
   userExitRedux
 } from '../redux/actions'
-import WelcomeModal from '../components/WelcomeModal'
+import FAQModal from '../components/FAQModal'
 import { download } from '../utils/commonUtils'
 
 const ChattingPageParticipant = props => {
@@ -16,19 +16,26 @@ const ChattingPageParticipant = props => {
   const hostPubKey = useSelector(state => state.hostPubKey)
   const [curMessage, setCurMessage] = useState('')
   if (!nickName) {
-    return (<WelcomeModal/>)
+    return (
+      <div>
+        <div className="m-2 alert alert-danger">Please start from main page</div>
+        <button className="m-2 btn btn-danger"
+                onClick={() => {window.location.href = '#'}}>Back
+        </button>
+      </div>
+    )
   }
   const handleSubmit = () => {
     dispatch(sendMessageRedux(curMessage, hostPubKey))
     setCurMessage('')
   }
 
-  const handleSave = ()=>{
-    download(JSON.stringify(messages[hostPubKey]));
+  const handleSave = () => {
+    download(JSON.stringify(messages[hostPubKey]))
   }
 
-  const handleExit=()=>{
-    dispatch(userExitRedux());
+  const handleExit = () => {
+    dispatch(userExitRedux())
   }
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -47,8 +54,12 @@ const ChattingPageParticipant = props => {
           </div>
           <div className="flex-grow-1"/>
           <div className="d-flex align-items-center">
-            <button type="button" className="btn m-2 btn-success" onClick={handleSave}>Save</button>
-            <button type="button" className="btn m-2 btn-danger" onClick={handleExit}>Exit</button>
+            <button type="button" className="btn m-2 btn-success"
+                    onClick={handleSave}>Save
+            </button>
+            <button type="button" className="btn m-2 btn-danger"
+                    onClick={handleExit}>Exit
+            </button>
           </div>
           <button className="navbar-toggler" type="button"
                   data-bs-toggle="collapse"

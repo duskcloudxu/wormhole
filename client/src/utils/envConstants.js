@@ -1,1 +1,1 @@
-export const SOCKET_HOST = process.env.NODE_ENV === 'production' ?  process.env.SERVER_DOMAIN_NAME: "localhost:4002"
+export const SOCKET_HOST = process.env.NODE_ENV === 'production' ?  "34.207.159.120": "localhost"

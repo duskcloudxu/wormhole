@@ -18,7 +18,7 @@ const socketIOClient = require("socket.io-client");
 export const initializeSocket = ()=>{
   //Receive welcome message from server
 
-  let socket = socketIOClient.connect(SOCKET_HOST, {secure: true});
+  let socket = socketIOClient.connect(SOCKET_HOST+":4002", {secure: true});
   socket.on("hello", msg => {
     console.log(msg);
     console.log(`connected to ${SOCKET_HOST} with session id ${socket.id}`);

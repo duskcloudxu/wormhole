@@ -24,8 +24,251 @@
   word-break: break-word;
 }
 
+.main .navbar {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  position: fixed;
+  width: 100vw;
+}
 .main .navbar .title {
   font-size: 48px;
+}
+.main .navbar .element {
+  font-size: 24px;
+}
+.main .bg-transparent {
+  background: rgba(0, 0, 0, 0) !important;
+}
+.main .introduction {
+  padding-bottom: calc(10rem - 4.5rem);
+  background-image: url("../images/mainPic.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  height: 100vh;
+}
+.main .introduction .title {
+  font-size: 12vh;
+}
+.main .introduction .slogan {
+  font-size: 3vh;
+}
+.main .introduction .page-button {
+  color: #614D4D;
+  background-color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+.main .introduction .divider {
+  width: 5vh;
+  height: auto;
+  display: inline-block;
+}
+@media (max-width: 768px) {
+  .main .introduction {
+    height: 600px;
+  }
+}
+.main .mainImage {
+  background-image: url("../images/mainPic.png");
+  height: 90vh;
+}
+.main .page-block {
+  height: 80vh;
+}
+.main .page-block .page-button {
+  color: white;
+  background-color: #614D4D;
+  font-size: 1.5vw;
+  padding: 1vw 1vw;
+}
+.main .page-block .element {
+  margin: 3vh 3vh;
+}
+.main .page-block .page-card {
+  border-color: #614D4D;
+  height: 30vh;
+}
+.main .page-block .page-card-large {
+  border-color: #614D4D;
+  height: 40vh;
+}
+.main .page-block .page-card-invisible {
+  border-color: white;
+  height: 30vh;
+}
+.main .grid-container-create {
+  margin-bottom: 10vh;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 0.8fr 1.3fr 1.1fr 0.8fr;
+  grid-template-rows: 1.3fr 0.8fr 0.7fr 2.1fr 0.7fr 1.3fr;
+  gap: 5% 2%;
+  grid-template-areas: ". . . ." ". blockTitle blockTitle ." ". blockForm blockDescription ." ". blockForm blockDescription ." ". . . ." ". . . .";
+}
+@media (max-width: 768px) {
+  .main .grid-container-create {
+    height: 120vh !important;
+  }
+}
+.main .grid-container-join {
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 0.8fr 1.3fr 1.1fr 0.8fr;
+  grid-template-rows: 1.3fr 0.8fr 0.7fr 2.1fr 0.7fr 1.3fr;
+  gap: 5% 2%;
+  grid-template-areas: ". . . ." ". blockTitle blockTitle ." ". joinForm blockDescription ." ". joinForm blockDescription ." ". . . ." ". . . .";
+}
+.main .blockTitle {
+  grid-area: blockTitle;
+}
+.main .blockForm {
+  box-shadow: 0 0 0 8px #614D4D;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #614D4D;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 0.5fr 2.6fr 0.3fr);
+  grid-template-rows: 1.5fr 1.2fr 1.2fr 0.8fr 1.3fr 0.7fr;
+  gap: 0.5% 0px;
+  grid-template-areas: ". . ." ". blockLabelA ." ". blockInputA ." ". . ." ". blockButton ." ". . .";
+  grid-area: blockForm;
+}
+.main .joinForm {
+  box-shadow: 0 0 0 8px #614D4D;
+  height: 40vh;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #614D4D;
+  display: grid;
+  grid-template-columns: 0.5fr 2.6fr 0.3fr;
+  grid-template-rows: 1.5fr 1.2fr 1.2fr 0.8fr 1.3fr 0.7fr 1fr 1fr;
+  gap: 2% 0px;
+  grid-template-areas: ". . ." ". blockLabelA ." ". blockInputA ." ". blockLabelB ." ". blockInputB ." ". . ." ". blockButton ." ". . .";
+  grid-area: joinForm;
+}
+.main .blockLabelB {
+  grid-area: blockLabelB;
+}
+.main .blockLabelB .label {
+  color: #614D4D;
+  font-size: 20px;
+  font-weight: bold;
+}
+.main .blockInputB {
+  grid-area: blockInputB;
+}
+.main .blockInputB .field {
+  box-shadow: 0 0 0 2px #614D4D;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #614D4D;
+}
+.main .blockLabelA {
+  grid-area: blockLabelA;
+}
+.main .blockLabelA .label {
+  color: #614D4D;
+  font-size: 20px;
+  font-weight: bold;
+}
+.main .blockInputA {
+  grid-area: blockInputA;
+}
+.main .blockInputA .field {
+  box-shadow: 0 0 0 2px #614D4D;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #614D4D;
+}
+.main .blockButton {
+  grid-area: blockButton;
+  color: white;
+  background-color: #614D4D;
+  font-size: 20px;
+}
+.main .blockDescription {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 1% 1%;
+  grid-template-areas: "descriptionTitle descriptionTitle descriptionTitle" "descriptionSubtitle descriptionSubtitle descriptionSubtitle" "logoA logoTextA logoTextA" "logoB logoTextB logoTextB" "logoC logoTextC logoTextC";
+  grid-area: blockDescription;
+}
+.main .descriptionTitle {
+  grid-area: descriptionTitle;
+}
+.main .descriptionSubtitle {
+  grid-area: descriptionSubtitle;
+}
+.main .descriptionSubtitle .subtitle {
+  font-size: 14px;
+}
+.main p {
+  margin-bottom: 0;
+}
+.main .logoA {
+  grid-area: logoA;
+  align-self: center;
+  justify-self: center;
+  content: url(../images/rsa.svg);
+}
+.main .logoB {
+  grid-area: logoB;
+  align-self: center;
+  justify-self: center;
+  content: url(../images/chip.svg);
+}
+.main .logoC {
+  grid-area: logoC;
+  align-self: center;
+  justify-self: center;
+  content: url(../images/fire.svg);
+}
+.main .logoD {
+  grid-area: logoC;
+  align-self: center;
+  justify-self: center;
+  content: url(../images/save.svg);
+}
+.main .logoTextA {
+  grid-area: logoTextA;
+  align-self: center;
+}
+.main .logoTextB {
+  grid-area: logoTextB;
+  align-self: center;
+}
+.main .logoTextC {
+  grid-area: logoTextC;
+  align-self: center;
+}
+@media only screen and (max-width: 900px) {
+  .main .grid-container-create {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 0.8fr 1.3fr 1.1fr 0.8fr;
+    grid-template-rows: 1.3fr 0.8fr 0.7fr 2.1fr 0.7fr 1.3fr;
+    gap: 5% 2%;
+    grid-template-areas: ". . . ." ". blockTitle blockTitle ." ". blockForm blockForm ." ". blockForm blockForm ." ". blockDescription blockDescription ." ". blockDescription blockDescription .";
+    margin-bottom: 10vh;
+  }
+  .main .grid-container-join {
+    height: 120vh;
+    display: grid;
+    grid-template-columns: 0.8fr 1.3fr 1.1fr 0.8fr;
+    grid-template-rows: 1.3fr 0.8fr 0.7fr 2.1fr 0.7fr 1.3fr;
+    gap: 5% 2%;
+    grid-template-areas: ". . . ." ". blockTitle blockTitle ." ". joinForm joinForm ." ". joinForm joinForm ." ". blockDescription blockDescription ." ". blockDescription blockDescription .";
+  }
 }
 
 .chatting .navbar {
