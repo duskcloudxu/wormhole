@@ -32,6 +32,267 @@ $mobile: 768px;
     .title {
       font-size: 48px;
     }
+    .element{
+      font-size:24px;
+    }
+
+  }
+
+
+  .introduction{
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    background-image: url("../images/mainPic.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 90vh;
+    .title{
+      font-size: 12vh;
+    }
+    .slogan{
+      font-size: 3vh;
+    }
+    .page-button{
+      color: #614D4D;
+      background-color: white;
+      font-size: 1.5vw;
+      font-weight: bold;
+      padding: 1vw 1vw;
+    }
+    .divider{
+      width:5vh;
+      height:auto;
+      display:inline-block;
+  }
+
+  }
+
+
+  .mainImage{
+    background-image: url('../images/mainPic.png');
+    height: 90vh;
+  }
+  .page-block{
+    height: 80vh;
+    .page-button{
+      color: white;
+      background-color: #614D4D;
+      font-size: 1.5 vw;
+      padding: 1vw 1vw;
+    }
+    .element{
+      margin: 3vh 3vh;
+    }
+    .page-card{
+      border-color: #614D4D;
+      height:30vh;
+    }
+    .page-card-large{
+      border-color: #614D4D;
+      height:40vh;
+    }
+    .page-card-invisible{
+      border-color: white;
+      height:30vh;
+    }
+  }
+
+  .grid-container-create {
+    margin-bottom: 10vh;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 0.8fr 1.3fr 1.1fr 0.8fr;
+    grid-template-rows: 1.3fr 0.8fr 0.7fr 2.1fr 0.7fr 1.3fr;
+    gap: 5% 2%;
+    grid-template-areas:
+      ". . . ."
+      ". blockTitle blockTitle ."
+      ". blockForm blockDescription ."
+      ". blockForm blockDescription ."
+      ". . . ."
+      ". . . .";
+  }
+
+  .grid-container-join {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 0.8fr 1.3fr 1.1fr 0.8fr;
+    grid-template-rows: 1.3fr 0.8fr 0.7fr 2.1fr 0.7fr 1.3fr;
+    gap: 5% 2%;
+    grid-template-areas:
+      ". . . ."
+      ". blockTitle blockTitle ."
+      ". joinForm blockDescription ."
+      ". joinForm blockDescription ."
+      ". . . ."
+      ". . . .";
+  }
+
+  .blockTitle { grid-area: blockTitle; }
+
+  .blockForm {
+    box-shadow: 0 0 0 8px #614D4D;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #614D4D;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 0.5fr 2.6fr 0.3fr);
+    grid-template-rows: 1.5fr 1.2fr 1.2fr 0.8fr 1.3fr 0.7fr;
+    gap: 0.5% 0px;
+    grid-template-areas:
+      ". . ."
+      ". blockLabelA ."
+      ". blockInputA ."
+      ". . ."
+      ". blockButton ."
+      ". . .";
+    grid-area: blockForm;
+  }
+
+  .joinForm {
+    box-shadow: 0 0 0 8px #614D4D;
+    height: 40vh;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #614D4D;
+    display: grid;
+    grid-template-columns: 0.5fr 2.6fr 0.3fr;
+    grid-template-rows: 1.5fr 1.2fr 1.2fr 0.8fr 1.3fr 0.7fr 1fr 1fr;
+    gap: 2% 0px;
+    grid-template-areas:
+      ". . ."
+      ". blockLabelA ."
+      ". blockInputA ."
+      ". blockLabelB ."
+      ". blockInputB ."
+      ". . ."
+      ". blockButton ."
+      ". . .";
+    grid-area: joinForm;
+  }
+
+  .blockLabelB {
+    grid-area: blockLabelB;
+    .label{
+      color: #614D4D;
+      font-size: 20px;
+      font-weight: bold;
+    }}
+  .blockInputB {
+    grid-area: blockInputB;
+    .field{
+      box-shadow: 0 0 0 2px #614D4D;
+      border-radius: 2px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #614D4D;
+    }}
+
+  .blockLabelA {
+     grid-area: blockLabelA;
+     .label{
+       color: #614D4D;
+       font-size: 20px;
+       font-weight: bold;
+     }
+    }
+
+  .blockInputA {
+    grid-area: blockInputA;
+
+    .field{
+      box-shadow: 0 0 0 2px #614D4D;
+      border-radius: 2px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #614D4D;
+    }
+  }
+
+  .blockButton {
+    grid-area: blockButton;
+    color: white;
+    background-color: #614D4D;
+    font-size: 20px;
+  }
+
+
+  .blockDescription {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1% 1%;
+    grid-template-areas:
+      "descriptionTitle descriptionTitle descriptionTitle"
+      "descriptionSubtitle descriptionSubtitle descriptionSubtitle"
+      "logoA logoTextA logoTextA"
+      "logoB logoTextB logoTextB"
+      "logoC logoTextC logoTextC";
+    grid-area: blockDescription;
+  }
+
+  .descriptionTitle { grid-area: descriptionTitle; }
+
+  .descriptionSubtitle {
+     grid-area: descriptionSubtitle;
+     .subtitle{
+       font-size:14px;
+     }
+  }
+
+  .logoA {
+    grid-area: logoA;
+    content:url(../images/rsa.png);
+  }
+
+  .logoB { grid-area: logoB; content:url(../images/chip.png);}
+
+  .logoC { grid-area: logoC; content:url(../images/fire.png);}
+
+  .logoD { grid-area: logoC; content:url(../images/save.png);}
+
+  .logoTextA { grid-area: logoTextA; }
+
+  .logoTextB { grid-area: logoTextB; }
+
+  .logoTextC { grid-area: logoTextC; }
+
+
+  @media only screen and (max-width: 900px) {
+    .grid-container-create {
+      height: 80vh;
+      display: grid;
+      grid-template-columns: 0.8fr 1.3fr 1.1fr 0.8fr;
+      grid-template-rows: 1.3fr 0.8fr 0.7fr 2.1fr 0.7fr 1.3fr;
+      gap: 5% 2%;
+      grid-template-areas:
+        ". . . ."
+        ". blockTitle blockTitle ."
+        ". blockForm blockForm ."
+        ". blockForm blockForm ."
+        ". blockDescription blockDescription ."
+        ". blockDescription blockDescription .";
+      margin-bottom: 10vh;
+    }
+    .grid-container-join {
+      height: 120vh;
+      display: grid;
+      grid-template-columns: 0.8fr 1.3fr 1.1fr 0.8fr;
+      grid-template-rows: 1.3fr 0.8fr 0.7fr 2.1fr 0.7fr 1.3fr;
+      gap: 5% 2%;
+      grid-template-areas:
+        ". . . ."
+        ". blockTitle blockTitle ."
+        ". joinForm joinForm ."
+        ". joinForm joinForm ."
+        ". blockDescription blockDescription ."
+        ". blockDescription blockDescription .";
+    }
+
   }
 }
 
@@ -176,4 +437,6 @@ $mobile: 768px;
     }
   }
 }
+
+
 
