@@ -87,8 +87,8 @@ const ChattingPageHost = props => {
         <div className="chattingContent" onClick={() => hideSidebar()}>
           <div className="messageBox ">
             {
-              messages[currentConversation].map(item => (
-                <div className={`message m-3 ${item.type}`}>
+              messages[currentConversation].map((item,i) => (
+                <div key={i} className={`message m-3 ${item.type}`}>
                   <div className="date">
                     {`${item.date.toISOString()}, ${item.sender} said:`}
                   </div>

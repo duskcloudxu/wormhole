@@ -73,8 +73,8 @@ const ChattingPageParticipant = props => {
         <div className="chattingContent">
           <div className="messageBox ">
             {
-              messages[hostPubKey].map(item => (
-                <div className={`message m-3 ${item.type}`}>
+              messages[hostPubKey].map((item,i) => (
+                <div key={i} className={`message m-3 ${item.type}`}>
                   <div className="date">
                     {`${item.date.toISOString()}, ${item.sender} said:`}
                   </div>

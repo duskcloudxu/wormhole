@@ -2,6 +2,8 @@
 
 Wormhole is a website frame that built to provide RSA-based encryption chatting service to those who know little knowledge about encrypted communication. We aim to build a framework that only for small amount of users and easy to host on any VPS. 
 
+![image-20210430041453815](https://tva1.sinaimg.cn/large/008i3skNly1gq1zi2yi66j31d00u0b2g.jpg)
+
 ## Demo
 
 We are still figuring a convenient way to deploy on popular VPS like Heroku or AWS, so current you could only test it on your local environment
