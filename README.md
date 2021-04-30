@@ -2,13 +2,49 @@
 
 Wormhole is a website frame that built to provide RSA-based encryption chatting service to those who know little knowledge about encrypted communication. We aim to build a framework that only for small amount of users and easy to host on any VPS. 
 
-## [Demo](34.207.159.120)
+## Demo
 
-We are still figuring a convenient way to deploy on popular VPS like Heroku or AWS, so we currently host the demo manually on a single free-tier ec2 instance.
+We are still figuring a convenient way to deploy on popular VPS like Heroku or AWS, so current you could only test it on your local environment
 
 ## Install Instruction
 
-TBD
+- Set up backend
+
+  - Run
+
+    ```
+    npm install
+    ```
+
+    Under `/api` directory to install back-end dependency
+
+  - run
+
+    ```
+    node server.js
+    ```
+
+    to serve the backend
+
+- Set up front-end
+
+  - Run
+
+    ```
+    npm install
+    ```
+
+    Under `/client` directory to install back-end dependency
+
+  - run
+
+    ```
+    npm start
+    ```
+
+    to start front-end, then you could visit `localhost:3000` to try our demo.
+
+
 
 ## UI Prototype
 
