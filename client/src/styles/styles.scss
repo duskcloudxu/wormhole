@@ -1,14 +1,179 @@
+$mobile: 768px;
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+.my-text-break {
+  word-break: break-word;
+}
 
 // all css attribute of main page go there
-.main{
-  .navbar{
-    .title{
+.main {
+  .navbar {
+    .title {
       font-size: 48px;
     }
   }
 }
 
-.chatting{
+.chatting {
+  .navbar {
+    min-height: 8vh;
+    width: 100vw;
+    background: #363A3E;
+    color: white;
+    box-shadow: 0px 6px 7px rgba(0, 0, 0, 0.5);
+    flex-wrap: wrap;
 
+    a {
+      color: white;
+    }
+
+    @media (max-width: $mobile) {
+      height: 120px;
+      box-shadow: none;
+      border-bottom: 0.5px solid grey;
+    }
+  }
+
+  .chattingContainer {
+    height: 92vh;
+    position: relative;
+    overflow: hidden;
+
+    .chattingContent {
+      flex-grow: 12;
+      height: 100%;
+      background: #363A3E;
+      position: relative;
+
+      .messageBox {
+        height: 90%;
+        overflow-y: scroll;
+      }
+      .message {
+        font-family: Consolas, monospace;
+      }
+
+      .public {
+        color: #138A10
+      }
+
+      .myMessage {
+        color: white
+      }
+
+      .othersMessage {
+        color: #5BC0DE
+      }
+
+      .msgInput {
+        width: 60vw;
+        position: absolute;
+        bottom: 10px;
+
+        input {
+          width: 80%;
+          background: #2A2B2C;
+          color: white;
+        }
+
+        .sendBtn {
+          color: #5CB85C;
+          border: 1px solid #5CB85C !important;
+        }
+
+      }
+    }
+
+    .currentMember {
+      height: 100%;
+      flex-grow: 3;
+      background: #2A2B2C;
+      @media (max-width: $mobile) {
+        flex-grow: 0;
+        width: 300px;
+        position: absolute;
+        right: -300px;
+      }
+      transition: right 1s;
+
+      .list-group {
+        border-radius: 0px;
+        border: 0px;
+
+        .myBtn {
+          background: #2A2B2C !important;
+          color: white;
+          border-bottom: 1px solid white;
+        }
+
+        .active {
+          font-weight: bold;
+          background: grey !important;
+          border: 0px;
+          border-bottom: 1px solid white;
+        }
+      }
+    }
+
+    .currentMember_translate {
+      @media (max-width: $mobile) {
+        right: 0;
+      }
+    }
+
+    @media (max-width: $mobile) {
+      height: calc(100vh - 120px);
+    }
+  }
+
+
+  .host {
+
+
+  }
+
+  .participant {
+
+  }
+
+
+  .widget {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    display: none;
+    @media (max-width: $mobile) {
+      display: block !important;
+      button {
+        background: #363A3E;
+
+        img {
+          width: 20px;
+        }
+      }
+
+    }
+  }
 }
 

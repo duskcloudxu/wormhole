@@ -5,7 +5,7 @@ import {
   joinConversation,
   sendMessage,
   userExit
-} from "../client";
+} from "../utils/client";
 
 const TestPage = props => {
   const [socket,setSocket] = useState(initializeSocket());
