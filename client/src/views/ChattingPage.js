@@ -1,29 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import keypair from 'keypair'
-import nodeRSA from 'node-rsa'
-import {
-  Switch,
-  Route,
-  Link, useRouteMatch
-} from 'react-router-dom'
-import ChattingPageHost from './ChattingPageHost'
-import ChattingPageParticipant from './ChattingPageParticipant'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const ChattingPage = props => {
-  const match = useRouteMatch()
   return (
-    <div className={"chatting"}>
-      <Route path={`${match.url}/host`}>
-        <ChattingPageHost/>
-      </Route>
-      <Route path={`${match.url}/participant`}>
-        <ChattingPageParticipant/>
-      </Route>
+    <div>
+      This is chatting page
     </div>
-  )
-}
+  );
+};
 
-ChattingPage.propTypes = {}
+ChattingPage.propTypes = {
 
-export default ChattingPage
+};
+
+export default ChattingPage;

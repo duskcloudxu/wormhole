@@ -1,11 +1,7 @@
-import {SOCKET_HOST} from "./envConstants";
-import { useDispatch } from 'react-redux'
-import store from '../redux/store'
-import {
-  errorRedux,
-  joinMessageRedux, leaveMessageRedux,
-  receiveMessageRedux, userExitedRedux
-} from '../redux/actions'
+import store from "./redux/store";
+import {newMessage} from "./redux/actions";
+import {SOCKET_HOST} from "./constant";
+
 /** CLIENT CONFIGURATION - connect to the server */
 const socketIOClient = require("socket.io-client");
 
@@ -16,35 +12,31 @@ const socketIOClient = require("socket.io-client");
 
 
 export const initializeSocket = ()=>{
-  //Receive welcome message from server
-
-  let socket = socketIOClient.connect(SOCKET_HOST+":4002", {secure: true});
+//Receive welcome message from server
+  let socket = socketIOClient.connect(SOCKET_HOST, {secure: true});
   socket.on("hello", msg => {
     console.log(msg);
     console.log(`connected to ${SOCKET_HOST} with session id ${socket.id}`);
   })
 
   socket.on("receiveMessage", msg => {
-    store.dispatch(receiveMessageRedux(msg));
+    console.log(msg)
   })
 
-  socket.on("error", res => {
-    store.dispatch(errorRedux(res.msg))
-    console.log("error"+res);
+  socket.on("error", msg => {
+    console.log(msg);
   })
 
   socket.on("joinMessage", msg => {
-    console.log("people joined",msg);
-    store.dispatch(joinMessageRedux(msg))
+    console.log(msg)
   })
 
   socket.on("leaveMessage", msg => {
-    console.log("people leave",msg);
-    store.dispatch(leaveMessageRedux(msg));
+    console.log(msg)
   })
 
   socket.on("endSession", msg => {
-    store.dispatch(userExitedRedux());
+    console.log(msg)
   })
 
   socket.on("disconnect", msg => {
@@ -86,7 +78,6 @@ export const joinConversation = (socket,member) => {
 }
 
 export const sendMessage = (socket,message) => {
-  console.log(message)
   socket.emit('sendMessage', message);
 }
 
