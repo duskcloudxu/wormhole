@@ -1,74 +1,122 @@
+$mobile: 768px;
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+.my-text-break {
+  word-break: break-word;
+}
 
 // all css attribute of main page go there
-.main{
-  .navbar{
-    .title{
+.main {
+  .navbar {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    position: fixed;
+    width: 100vw;
+    .title {
       font-size: 48px;
     }
-    .element{
-      font-size:24px;
+
+    .element {
+      font-size: 24px;
     }
-  
+  }
+  .bg-transparent{
+    background: rgba(0,0,0,0)!important;
   }
 
-  
-  .introduction{
-    padding-top: 10rem;
+
+  .introduction {
     padding-bottom: calc(10rem - 4.5rem);
     background-image: url("../images/mainPic.png");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
-    height: 90vh;
-    .title{
+    height: 100vh;
+
+    .title {
       font-size: 12vh;
     }
-    .slogan{
+
+    .slogan {
       font-size: 3vh;
     }
-    .page-button{
+
+    .page-button {
       color: #614D4D;
       background-color: white;
-      font-size: 1.5vw;
       font-weight: bold;
-      padding: 1vw 1vw;
+      padding: 10px;
     }
-    .divider{
-      width:5vh;
-      height:auto;
-      display:inline-block;
-  }
-    
-  }
-  
 
-  .mainImage{
+    .divider {
+      width: 5vh;
+      height: auto;
+      display: inline-block;
+    }
+    @media (max-width: $mobile) {
+      height: 600px;
+    }
+
+  }
+
+
+  .mainImage {
     background-image: url('../images/mainPic.png');
     height: 90vh;
   }
-  .page-block{
+
+  .page-block {
     height: 80vh;
-    .page-button{
+
+    .page-button {
       color: white;
       background-color: #614D4D;
-      font-size: 1.5 vw;
+      font-size: 1.5vw;
       padding: 1vw 1vw;
     }
-    .element{
+
+    .element {
       margin: 3vh 3vh;
     }
-    .page-card{
+
+    .page-card {
       border-color: #614D4D;
-      height:30vh;
+      height: 30vh;
     }
-    .page-card-large{
+
+    .page-card-large {
       border-color: #614D4D;
-      height:40vh;
+      height: 40vh;
     }
-    .page-card-invisible{
+
+    .page-card-invisible {
       border-color: white;
-      height:30vh;
+      height: 30vh;
     }
   }
 
@@ -86,6 +134,9 @@
       ". blockForm blockDescription ."
       ". . . ."
       ". . . .";
+    @media (max-width: $mobile) {
+      height: 120vh!important;
+    }
   }
 
   .grid-container-join {
@@ -102,9 +153,11 @@
       ". . . ."
       ". . . .";
   }
-  
-  .blockTitle { grid-area: blockTitle; }
-  
+
+  .blockTitle {
+    grid-area: blockTitle;
+  }
+
   .blockForm {
     box-shadow: 0 0 0 8px #614D4D;
     border-radius: 10px;
@@ -148,36 +201,20 @@
     grid-area: joinForm;
   }
 
-  .blockLabelB { 
-    grid-area: blockLabelB; 
-    .label{
+  .blockLabelB {
+    grid-area: blockLabelB;
+
+    .label {
       color: #614D4D;
       font-size: 20px;
       font-weight: bold;
-    }}
-  .blockInputB { 
-    grid-area: blockInputB; 
-    .field{
-      box-shadow: 0 0 0 2px #614D4D;
-      border-radius: 2px;
-      border-style: solid;
-      border-width: 1px;
-      border-color: #614D4D;
-    }}
-  
-  .blockLabelA {
-     grid-area: blockLabelA; 
-     .label{
-       color: #614D4D;
-       font-size: 20px;
-       font-weight: bold;
-     }
     }
-  
-  .blockInputA {
-    grid-area: blockInputA; 
-    
-    .field{
+  }
+
+  .blockInputB {
+    grid-area: blockInputB;
+
+    .field {
       box-shadow: 0 0 0 2px #614D4D;
       border-radius: 2px;
       border-style: solid;
@@ -185,15 +222,37 @@
       border-color: #614D4D;
     }
   }
-  
+
+  .blockLabelA {
+    grid-area: blockLabelA;
+
+    .label {
+      color: #614D4D;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  .blockInputA {
+    grid-area: blockInputA;
+
+    .field {
+      box-shadow: 0 0 0 2px #614D4D;
+      border-radius: 2px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #614D4D;
+    }
+  }
+
   .blockButton {
-    grid-area: blockButton;   
+    grid-area: blockButton;
     color: white;
     background-color: #614D4D;
     font-size: 20px;
   }
 
-  
+
   .blockDescription {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -207,34 +266,65 @@
       "logoC logoTextC logoTextC";
     grid-area: blockDescription;
   }
-  
-  .descriptionTitle { grid-area: descriptionTitle; }
-  
-  .descriptionSubtitle {
-     grid-area: descriptionSubtitle; 
-     .subtitle{
-       font-size:14px;
-     }
-  }
-  
-  .logoA { 
-    grid-area: logoA; 
-    content:url(../images/rsa.png);
-  }
-  
-  .logoB { grid-area: logoB; content:url(../images/chip.png);}
-  
-  .logoC { grid-area: logoC; content:url(../images/fire.png);}
 
-  .logoD { grid-area: logoC; content:url(../images/save.png);}
-  
-  .logoTextA { grid-area: logoTextA; }
-  
-  .logoTextB { grid-area: logoTextB; }
-  
-  .logoTextC { grid-area: logoTextC; }
-  
-  
+  .descriptionTitle {
+    grid-area: descriptionTitle;
+  }
+
+  .descriptionSubtitle {
+    grid-area: descriptionSubtitle;
+
+    .subtitle {
+      font-size: 14px;
+    }
+  }
+  p{
+    margin-bottom:0 ;
+  }
+  .logoA {
+    grid-area: logoA;
+    align-self: center;
+    justify-self: center;
+    content: url(../images/rsa.svg);
+  }
+
+  .logoB {
+    grid-area: logoB;
+    align-self: center;
+    justify-self: center;
+    content: url(../images/chip.svg);
+  }
+
+  .logoC {
+    grid-area: logoC;
+    align-self: center;
+    justify-self: center;
+    content: url(../images/fire.svg);
+  }
+
+  .logoD {
+    grid-area: logoC;
+    align-self: center;
+    justify-self: center;
+    content: url(../images/save.svg);
+  }
+
+  .logoTextA {
+    grid-area: logoTextA;
+    align-self: center;
+  }
+
+  .logoTextB {
+    grid-area: logoTextB;
+    align-self: center;
+  }
+
+  .logoTextC {
+    grid-area: logoTextC;
+    align-self: center;
+  }
+
+
   @media only screen and (max-width: 900px) {
     .grid-container-create {
       height: 80vh;
@@ -266,6 +356,149 @@
         ". blockDescription blockDescription .";
     }
 
+  }
+}
+
+.chatting {
+  .navbar {
+    min-height: 8vh;
+    width: 100vw;
+    background: #363A3E;
+    color: white;
+    box-shadow: 0px 6px 7px rgba(0, 0, 0, 0.5);
+    flex-wrap: wrap;
+
+    a {
+      color: white;
+    }
+
+    @media (max-width: $mobile) {
+      height: 120px;
+      box-shadow: none;
+      border-bottom: 0.5px solid grey;
+    }
+  }
+
+  .chattingContainer {
+    height: 92vh;
+    position: relative;
+    overflow: hidden;
+
+    .chattingContent {
+      flex-grow: 12;
+      height: 100%;
+      background: #363A3E;
+      position: relative;
+
+      .messageBox {
+        height: 90%;
+        overflow-y: scroll;
+      }
+
+      .message {
+        font-family: Consolas, monospace;
+      }
+
+      .public {
+        color: #138A10
+      }
+
+      .myMessage {
+        color: white
+      }
+
+      .othersMessage {
+        color: #5BC0DE
+      }
+
+      .msgInput {
+        width: 60vw;
+        position: absolute;
+        bottom: 10px;
+
+        input {
+          width: 80%;
+          background: #2A2B2C;
+          color: white;
+        }
+
+        .sendBtn {
+          color: #5CB85C;
+          border: 1px solid #5CB85C !important;
+        }
+
+      }
+    }
+
+    .currentMember {
+      height: 100%;
+      flex-grow: 3;
+      background: #2A2B2C;
+      @media (max-width: $mobile) {
+        flex-grow: 0;
+        width: 300px;
+        position: absolute;
+        right: -300px;
+      }
+      transition: right 1s;
+
+      .list-group {
+        border-radius: 0px;
+        border: 0px;
+
+        .myBtn {
+          background: #2A2B2C !important;
+          color: white;
+          border-bottom: 1px solid white;
+        }
+
+        .active {
+          font-weight: bold;
+          background: grey !important;
+          border: 0px;
+          border-bottom: 1px solid white;
+        }
+      }
+    }
+
+    .currentMember_translate {
+      @media (max-width: $mobile) {
+        right: 0;
+      }
+    }
+
+    @media (max-width: $mobile) {
+      height: calc(100vh - 120px);
+    }
+  }
+
+
+  .host {
+
+
+  }
+
+  .participant {
+
+  }
+
+
+  .widget {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    display: none;
+    @media (max-width: $mobile) {
+      display: block !important;
+      button {
+        background: #363A3E;
+
+        img {
+          width: 20px;
+        }
+      }
+
+    }
   }
 }
 

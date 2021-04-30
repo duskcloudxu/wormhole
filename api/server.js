@@ -118,6 +118,7 @@ io.on("connection", client => {
 
   client.on("joinConversation", member => {
     const {hostPubkey, nickName, pubKey} = member;
+    console.log(member);
     if (hostPubkey === undefined || nickName === undefined || pubKey
       === undefined) {
       console.log(
@@ -165,7 +166,7 @@ io.on("connection", client => {
     const targets = conversations[roomPubKey].members.filter(
       item => item.pubKey === cipherPubKey);
     if (targets.length === 0) {
-      client.emit("error", ERROR_INFOR_MISSING_USER);
+      client.emit("pong", ERROR_INFOR_MISSING_USER);
       return
     }
     const res = {
@@ -217,7 +218,12 @@ io.on("connection", client => {
       return;
     }
     else if(pubKey !== roomPubkey){
-      removeUser(roomPubkey,pubKey,client.id);
+      const nickName = removeUser(roomPubkey,pubKey,client.id);
+      const res = {
+        pubKey,
+        nickName,
+      }
+      conversations[roomPubkey].members[0].socket.emit("leaveMessage",res);
     }
     else if(pubKey === roomPubkey){
       removeConversation(roomPubkey,client.id)

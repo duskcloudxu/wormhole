@@ -9,12 +9,15 @@ import {
 import TestPage from "./TestPage";
 import ChattingPage from "./ChattingPage";
 import MainPage from "./MainPage";
+import { encryption ,decryption } from '../utils/rsa'
+import EndModal from '../components/EndModal'
 
 
 
 
 const App = () => {
-
+  window.encryption = encryption;
+  window.decryption = decryption;
   return (
     <Router>
       <Switch>
@@ -28,6 +31,7 @@ const App = () => {
           <MainPage/>
         </Route>
       </Switch>
+      <EndModal/>
     </Router>
   )
 }
